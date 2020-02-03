@@ -24,6 +24,10 @@
 
             document.getElementById('x').innerHTML = x;
             document.getElementById('y').innerHTML = y;
+
+            document.getElementById('guess').focus();
+            document.getElementById('guess').select();
+            document.getElementById('correctness').innerHTML = "";
         }
 
         function check_answer()
@@ -34,10 +38,12 @@
             if (guess == x*y)
             {
                 correctness = "Correct!";
+                setTimeout(new_numbers, 1500);
             }
             else
             {
                 correctness = "Wrong!";
+                document.getElementById('guess').select();
             }
 
             document.getElementById('correctness').innerHTML = correctness;
