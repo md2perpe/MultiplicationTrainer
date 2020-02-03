@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <title>MultiplicationTrainer</title>
+</head>
+<body onload="new_numbers()">
+
+    <div style="width: 50%; margin: auto; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <div>
+            <span id="x"></span> * <span id="y"></span> = <input id="guess" onchange="check_answer()">
+        </div>
+        <div>
+            <span id="correctness"></span>
+        </div>
+    </div>
+
+    <script>
+        let x, y;
+
+        function new_numbers()
+        {
+            x = 1 + Math.floor(10*Math.random());
+            y = 1 + Math.floor(10*Math.random());
+
+            document.getElementById('x').innerHTML = x;
+            document.getElementById('y').innerHTML = y;
+        }
+
+        function check_answer()
+        {
+            let guess = document.getElementById('guess').value;
+            let correctness;
+
+            if (guess == x*y)
+            {
+                correctness = "Correct!";
+            }
+            else
+            {
+                correctness = "Wrong!";
+            }
+
+            document.getElementById('correctness').innerHTML = correctness;
+        }
+    </script>
+</body>
+</html>
